@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% block content %}
+<h1>Order Form</h1>
+
+{{ form_start(form) }}
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.lastName) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.phoneNumber) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.zipcode) }}
+
+
+    {{ form_end(form) }}
+
+{% endblock body %}

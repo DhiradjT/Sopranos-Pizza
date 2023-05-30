@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+
+
+    <nav class="navbar navbar-expand-lg text-light bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="#">Sopranos<br><small>Pizza <img class="pizza-logo" src="{{ asset('/img/pizza.png') }}" alt=""></small></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span><i class="bi bi-segmented-nav"></i></p>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-light" href="#">Home</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Meat</a></li>
+                            <li><a class="dropdown-item" href="#">Fish</a></li>
+                            <li><a class="dropdown-item" href="#">Vegan</a></li>
+                            <li><a class="dropdown-item" href="#">Drinks</a></li>
+                        </ul>
+                    </li>
+                        <a class="nav-link text-light" href="{{ path('contact') }}">Contact</a>
+                    <a class="nav-link text-light" href="{{ path('login') }}"><i class="bi bi-person-fill"></i> Login</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+{#END NAV#}
+
+    <div class="img-header"><h2 class="header text-center text-light">Welcome To <span class="header">Sopranos</span> <br> The Home Of Authentic Pizzas</h2></div>
+
+
+
+
+
+        <section class="about">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12 text-center my-5"> <h2 class="h3-about-text">OUR STORY</h2>
+                        <p class="text-secondary text-center about-text-p">At Sopranos Pizza, we're passionate about crafting authentic Italian flavors that bring people together. Our pizzas are made with the freshest ingredients and a touch of love, resulting in a truly satisfying dining experience. Whether you're looking for a classic pepperoni pizza or something a little more adventurous, we've got you covered. Our team of dedicated pizzamakers takes pride in delivering delicious pizzas that exceed your expectations. We invite you to come and taste the difference for yourself – mangia bene!</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+<div class="img-header2">
+    <section class="statistics">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                    <div class="col mt-5">
+                        <div class="statistics-header text-center">500+</div>
+                        <div class="statistics-subheader text-center">Happy Customers</div>
+                    </div>
+
+                    <div class="col mt-5">
+                        <div class="statistics-header text-center">420+</div>
+                        <div class="statistics-subheader text-center">Pizzas sold weekly</div>
+                    </div>
+
+                    <div class="col mt-5">
+                        <div class="statistics-header text-center">20</div>
+                        <div class="statistics-subheader text-center">Stores in The Netherlands</div>
+                    </div>
+
+                    <div class="col mt-5">
+                        <div class="statistics-header text-center">70+</div>
+                        <div class="statistics-subheader text-center">Employees</div>
+                    </div>
+
+
+            </div>
+        </div>
+    </section>
+</div>
+
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mt-5">
+                    <h2 class="h3-about-text">OUR MENU</h2>
+                    <p class="text-secondary about-text-p">Whether you're a meat lover, pescatarian, or vegan, we've got the perfect pizza for you! Our menu features a wide variety of options!</p>
+                </div>
+
+                {% block pizza %}
+                    {% for categorie in categoriees %}
+
+
+
+                        <div class="col-lg-3 col-sm-12">
+                            <div class="card border-0 bg-transparent">
+                                <img class="card-img-top opacity-75" src="{{ asset(categorie.img) }}" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title text-light">{{ categorie.type }}</h5>
+                                    <p class="card-text text-light">{{ categorie.description }}</p>
+                                    <a href="{{ path('product', {id: categorie.id}) }}" class="btn btn-outline-light rounded-0">Order</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    {% endfor %}
+                {% endblock %}
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<div class="img-header3"></div>
+
+
+    <section class="about">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 text-center my-5"> <h2 class="h3-about-text">FAQ</h2>
+                    <h2 class="h3-faq-text">Frequently Asked Questions</h2>
+                    <p class="text-secondary text-center about-text-p">Here are some of the most commonly asked questions about our pizza business. If you have any other questions or concerns, please don't hesitate to reach out to us. We're always happy to help!</p>
+            </div>
+
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                               1. What's your pizza dough made of?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Our pizza dough is made of high-quality flour, water, yeast, and salt. We allow the dough to rise slowly to develop a delicious flavor and texture.</div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                2. What kind of sauce do you use on your pizzas?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">We use a special blend of fresh tomatoes, herbs, and spices to create our signature pizza sauce. It's rich, flavorful, and the perfect complement to our toppings.</div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                3. Do you have any special deals or discounts?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Yes, we offer various deals and discounts throughout the year, such as special menu items, happy hour specials, and loyalty programs. Check our website or social media pages for the latest promotions.</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            </div>
+    </section>
+
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+    {% endblock %}

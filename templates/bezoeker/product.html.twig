@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% block navbar %}
+        {{ parent() }}
+    {% endblock navbar %}
+
+
+    {% for categorie in categoriees %}
+        <div class="img-header">
+            <div class="container">
+                <h2 class="header-contact text-light">{{ categorie.type }}</h2></div>
+        </div>
+        </div>
+
+    {% endfor %}
+
+
+
+
+
+
+
+{#    <h1 class="text-center text-uppercase text-light mt-5 category-header">Meat Pizzas</h1>#}
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="col">#}
+{#    {% block pizza %}#}
+{#    {% for product in pizzas %}#}
+
+
+
+{#        <div class="card border-0 shadow" style="width: 18rem;">#}
+{#            <img src="{{ asset(product.img) }}" class="card-img-top" alt="Example Photo">#}
+{#            <div class="card-body">#}
+{#                <h5 class="card-title">{{ product.name }}</h5>#}
+{#                <h6 class="card-subtitle-category mb-2 text-secondary fst-italic">Ingredients: {{ product.ingredients }}</h6>#}
+{#                <p class="card-text-category"><b>Price: € {{ product.price }}</b></p>#}
+{#                <div class="form-group">#}
+{#                    <label for="size-select"><b>Select Size:</b></label>#}
+{#                    <br>#}
+{#                    <select class="form-control" id="size-select">#}
+{#                        <option>Small | 25cm</option>#}
+{#                        <option>Medium | 30cm</option>#}
+{#                        <option>Large | 35cm</option>#}
+{#                    </select>#}
+{#                </div>#}
+{#                <br>#}
+{#                <button type="button" class="btn btn-warning">Order Now</button>#}
+
+{#            </div>#}
+{#        </div>#}
+
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+{#    {% endfor %}#}
+{#{% endblock %}#}
+
+
+    <section class="products">
+        <div class="container">
+            <div class="row">
+
+                {% block pizza %}
+                    {% for product in pizzas %}
+
+
+
+                        <div class="col-md-4 mt-5">
+                            <div class="card border-0">
+                                <img class="card-img-top" src="{{ asset(product.img) }}" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-subtitle-category subtitle-category text-secondary fst-italic">{{ product.ingredients }}</p>
+                                    <p class="card-text-category"><b>Price: € {{ product.price }}</b></p>
+                                    <div class="form-group">
+                                        <label for="size-select"><b>Select Size:</b></label>
+                                        <br>
+                                        <select class="form-control" id="size-select">
+                                            <option>Small | 25cm</option>
+                                            <option>Medium | 30cm</option>
+                                            <option>Large | 35cm</option>
+                                        </select>
+                                    </div>
+                                    <button  type="button" class="btn btn-warning">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    {% endfor %}
+                {% endblock %}
+
+
+
+            </div>
+        </div>
+    </section>
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+{% endblock body %}
+

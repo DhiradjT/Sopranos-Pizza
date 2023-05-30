@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock navbar %}
+
+    <div class="img-header">
+        <div class="container">
+            <h2 class="header-contact text-light">Contact Us</h2></div>
+
+        </div>
+       </div>
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-6">
+    <div class="card border-0" id="card1">
+        <div class="card-body">
+            <h2 class="form-header text-center mb-5">Get In Touch</h2>
+                {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.subject) }}
+                {{ form_row(form.message) }}
+                {{ form_rest(form) }}
+                <button type="submit" class="btn btn-warning">Send Message</button>
+                {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+
+    <div class="col-md-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427055.9099287703!2d-5.123309075000017!3d53.55470080000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4878fac930a5a32b%3A0x6ac60540df9a371b!2sSoprano&#39;s!5e0!3m2!1snl!2snl!4v1679840216377!5m2!1snl!2snl" width="600" height="440" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+
+
+ </div>{#row div#}
+</div>{#container div#}
+
+
+
+
+
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% endblock body %}
